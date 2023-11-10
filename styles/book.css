@@ -1,0 +1,538 @@
+/* 
+  SELECTED BOOKS
+*/
+
+.section__header__title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #032b41;
+  margin-bottom: 16px;
+}
+
+.selected__book {
+  display: flex;
+  justify-content: space-between;
+  width: calc((100% / 3) * 2);
+  background-color: #fbefd6;
+  border-radius: 4px;
+  padding: 24px;
+  margin-bottom: 24px;
+  gap: 24px;
+}
+
+.selected__book--subtitle {
+  color: #032b41;
+  width: 40%;
+}
+
+.selected__book--separator {
+  width: 1px;
+  background-color: #bac8ce;
+}
+
+.selected__book--content {
+  display: flex;
+  gap: 16px;
+  width: 60%;
+}
+
+.selected--book__image--wrapper {
+  height: 140px;
+  width: 140px;
+  min-width: 140px;
+}
+
+.book__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.selected__book--info {
+  width: 100%;
+}
+
+.selected__book--title {
+  font-weight: 600;
+  color: #032b41;
+  margin-bottom: 8px;
+}
+
+.selected__book--author {
+  font-size: 14px;
+  color: #394547;
+  margin-bottom: 16px;
+}
+
+.selected__book--icon {
+  display: flex;
+  align-items: center;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+}
+
+.selected__book--audio-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.play--icon {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  align-items: center;
+  padding: 4px 4px 4px 6px;
+}
+
+.selected__book--duration {
+  font-size: 14px;
+  font-weight: 500;
+  color: #032b41;
+}
+
+/* 
+    RECOMMENDATIONS
+  */
+.section__header__subtitle {
+  font-weight: 300;
+  color: #394547;
+  margin-bottom: 16px;
+}
+
+.recommended--books__container,
+.recommended--books__container--skeleton {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  scroll-snap-type: x mandatory;
+  margin-bottom: 32px;
+}
+
+.recommended--books__container::-webkit-scrollbar {
+  display: none;
+}
+
+.recommended--books__container div:hover {
+  background-color: #f1f6f4;
+}
+
+.recommended--books--link {
+  position: relative;
+  scroll-snap-align: start;
+  padding: 32px 12px 12px;
+  text-decoration: none;
+  border-radius: 4px;
+  max-width: 200px;
+  width: 100%;
+}
+
+.book__image--wrapper {
+  width: 172px;
+  height: 172px;
+}
+
+.recommended__book--title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #032b41;
+  margin-bottom: 8px;
+}
+
+.recommended__book--author {
+  font-size: 14px;
+  color: #6b757b;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.recommended__book--subtitle {
+  font-size: 14px;
+  color: #394547;
+  margin-bottom: 8px;
+}
+
+.recommended__book--details-wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.recommended__book--details {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #6b757b;
+}
+
+.recommended__book--details-icon--container {
+  display: flex;
+  width: 16px;
+  height: 16px;
+}
+
+.recommended__book--details-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.book--premium {
+  background-color: #032b41;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 18px;
+  padding: 0 8px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.book__description__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 
+    INDIVIDUAL BOOK
+  */
+.book__wrapper {
+  display: flex;
+  gap: 16px;
+}
+
+.book__description__container {
+  width: 100%;
+}
+
+.book__description__title,
+.book__description__author {
+  color: #032b41;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.book__description__title {
+  font-size: 32px;
+}
+
+.book__description__subtitle {
+  font-size: 20px;
+  color: #032b41;
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+
+.book__description__icons__container {
+  border-top: 1px solid #e1e7ea;
+  border-bottom: 1px solid #e1e7ea;
+  padding: 16px 0;
+  margin-bottom: 24px;
+}
+
+.book__description__icons__inner--container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 400px;
+  row-gap: 12px;
+}
+
+.book__description__icon--container {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  color: #032b41;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.book__description__icon {
+  display: flex;
+  height: 24px;
+  width: 24px;
+  margin-right: 4px;
+}
+
+.book__rating {
+  margin-right: 4px;
+}
+
+.book__btn--container {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.book--read__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 144px;
+  height: 48px;
+  background-color: #032b41;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  gap: 8px;
+  transition: opacity 0.2s;
+}
+
+.book--read__icon {
+  display: flex;
+}
+
+.book--read__icon svg {
+  height: 24px;
+  width: 24px;
+}
+
+.bookmark__container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #0365f2;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 40px;
+  font-size: 18px;
+  transition: color 0.2s;
+}
+
+.bookmark__icon {
+  display: flex;
+  width: 20px;
+  height: 20px;
+}
+
+.bookmark__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.book--about__container {
+  font-size: 18px;
+  color: #032b41;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.book--tags__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.book--tag {
+  background-color: #f1f6f4;
+  padding: 0 16px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  cursor: not-allowed;
+  color: #032b41;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.book__description {
+  color: #032b41;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.book--author--about {
+  font-size: 18px;
+  color: #032b41;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.book--author--description {
+  color: #032b41;
+  line-height: 1.5;
+}
+
+.book--inner--img__container {
+  height: 300px;
+  width: 300px;
+  min-width: 300px;
+}
+
+.finished__books--block-wrapper {
+  background-color: #f1f6f4;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 32px;
+  border-radius: 12px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.finished__books--title {
+  color: #042330;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.finished__books--sub-title {
+  color: #394547;
+}
+
+/* 
+    BOOK SUMMARY
+  */
+
+.summary__container {
+  position: relative;
+  width: 100%;
+  overflow-y: auto;
+  height: calc(100vh - 160px);
+}
+
+.audio--summary {
+  white-space: pre-line;
+  padding: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+.audio--summary--title {
+  color: #032b41;
+  font-size: 24px;
+  border-bottom: 1px solid #e1e7ea;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  line-height: 1.5;
+}
+
+.audio--summary--text {
+  white-space: pre-line;
+  line-height: 1.4;
+  color: #032b41;
+}
+
+/* 
+    AUDIO 
+  */
+.audio__container {
+  width: 100%;
+  height: 80px;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #042330;
+  padding: 0 40px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9998;
+}
+
+.audio__container > div {
+  width: calc(100% / 3);
+}
+
+.audio__track--container {
+  display: flex;
+  gap: 12px;
+}
+
+.audio__track__img__wrapper {
+  display: flex;
+  max-width: 48px;
+  height: 48px;
+  width: 48px;
+}
+
+.audio__track__details__container {
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+}
+
+.audio__track--author {
+  color: #bac8ce;
+}
+
+.audio__controls,
+.audio__controls--btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.audio__controls {
+  gap: 24px;
+}
+
+.audio__controls--btn {
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.audio__controls--btn svg {
+  width: 32px;
+  height: 32px;
+  transition: all 0.2s;
+  color: #fff;
+}
+
+.audio__controls--btn--play {
+  background-color: #fff;
+  width: 40px;
+  height: 40px;
+}
+
+.audio__controls--btn--play svg {
+  color: #000;
+}
+
+.audio__progress--container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.audio__time {
+  color: #fff;
+  font-size: 14px;
+}
+
+.audio__progress--bar {
+  background: linear-gradient(
+    to right,
+    rgb(43, 217, 124) 0%,
+    rgb(109, 120, 125) 0%
+  );
+  --range-progress: 0%;
+  border-radius: 8px;
+  height: 4px;
+  max-width: 300px;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
