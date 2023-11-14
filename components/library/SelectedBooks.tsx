@@ -29,7 +29,7 @@ function SelectedBooks({
             ref={audioRef}
             onLoadedMetadata={onLoadedMetadata}
           ></audio>
-          <Link href="" className="selected__book">
+          <Link href={`/book/${selectedBook?.id}`} className="selected__book">
             <div className="selected__book--sub-title">
               {selectedBook?.subTitle}
             </div>
