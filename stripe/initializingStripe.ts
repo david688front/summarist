@@ -9,7 +9,7 @@ const payments = getStripePayments(app, {
   customersCollection: "customers",
 });
 
-const initializeStripe = async () => {
+const initializingStripe = async () => {
   if (!stripePromise) {
     stripePromise = await loadStripe(
       process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
@@ -17,6 +17,6 @@ const initializeStripe = async () => {
   }
   return stripePromise;
 };
-export default initializeStripe;
+export default initializingStripe;
 
 export { payments };

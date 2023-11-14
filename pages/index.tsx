@@ -18,7 +18,7 @@ export default function Home() {
         <title>Summarist</title>
         <link rel="icon" href="favicon.ico" />
       </Head>
-      <main>
+    
         {modal && <Authen />}
         <Header />
         <Landing />
@@ -26,7 +26,7 @@ export default function Home() {
         <Reviews />
         <Numbers />
         <Footer />
-      </main>
+      
     </div>
   );
 }

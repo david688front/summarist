@@ -6,7 +6,7 @@ import {
   collection,
   onSnapshot,
 } from "firebase/firestore";
-import getStripe from "./initializeStripe";
+import getStripe from "./initializingStripe";
 
 const payments = getStripePayments(app, {
   productsCollection: "products",
