@@ -1,6 +1,6 @@
 import Authentication from "@/components/Authen";
 import SummaryBookSkel from "@/components/skeleton/SummaryBookSkel";
-import SummaryBook from "@/components/UI/SummaryBook";
+import SummaryBook from "@/components/book/SummaryBook";
 import SearchBar from "@/components/library/SearchBar";
 import Sidebar from "@/components/library/Sidebar";
 import useAudio from "@/hooks/useAudio";

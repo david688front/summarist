@@ -3,9 +3,9 @@ import { audioPlayerOpen } from "@/redux/audioPlayerSlice";
 import { BookObject } from "@/BookObject";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import Controls from "../audio/Controls";
-import DisplayTrack from "../audio/DisplayTrack";
-import ProgressBar from "../audio/ProgressBar";
+import Controls from "./Controls";
+import DisplayTrack from "./DisplayTrack";
+import ProgressBar from "./ProgressBar";
 
 interface Props {
   book: BookObject | null;

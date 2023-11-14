@@ -6,7 +6,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import SearchBookCard from "../UI/SearchBookCard";
+import SearchBookCard from "../book/SearchBookCard";
 
 function SearchBar() {
   const [userInput, setUserInput] = useState<string>("");

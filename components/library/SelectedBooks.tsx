@@ -1,6 +1,6 @@
 import { BookObject } from "@/BookObject";
 import { BsPlayFill } from "react-icons/bs";
-import BooksCard from "../UI/BooksCard";
+import BooksCard from "../book/BooksCard";
 import useAudio from "@/hooks/useAudio";
 import Link from "next/link";
 

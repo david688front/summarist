@@ -1,5 +1,5 @@
-import Summary from "@/components/UI/Summary";
-import AudioPlayer from "@/components/audio/AudioPlayer";
+import Summary from "@/components/book/Summary";
+import AudioPlayer from "@/components/player/AudioPlayer";
 import SearchBar from "@/components/library/SearchBar";
 import Sidebar from "@/components/library/Sidebar";
 import useAuth from "@/hooks/useAuth";

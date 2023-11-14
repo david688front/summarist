@@ -1,5 +1,5 @@
 import Authen from "@/components/Authen";
-import SettingsComponent from "@/components/UI/SettingsComponent";
+import SettingsComponent from "@/components/book/SettingsComponent";
 import SearchBar from "@/components/library/SearchBar";
 import Sidebar from "@/components/library/Sidebar";
 import { RootState } from "@/redux/modalStore";
