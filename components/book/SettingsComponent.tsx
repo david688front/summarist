@@ -42,7 +42,7 @@ function SettingsComponent() {
               {user?.email ? (
                 <div className="settings__text">{user?.email}</div>
               ) : (
-                <div className="settings__text">Guest</div>
+                <div className="settings__text">tony@gmail.com</div>
               )}
             </div>
           </>
