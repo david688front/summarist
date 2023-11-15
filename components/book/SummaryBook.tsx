@@ -88,6 +88,10 @@ function SummaryBook({
           }
         );
       }
+    }else{
+     
+        dispatch(modalOpen());
+      
     }
   };
 

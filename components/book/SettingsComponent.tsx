@@ -29,7 +29,7 @@ function SettingsComponent() {
                     Basic
                     <Link
                       href="/choose-plan"
-                      className="btn settings__upgrade--btn"
+                      className="btn settings__upgrade--btn" style={{marginTop:"10px"}}
                     >
                       Upgrade to Premium
                     </Link>
@@ -42,7 +42,7 @@ function SettingsComponent() {
               {user?.email ? (
                 <div className="settings__text">{user?.email}</div>
               ) : (
-                <div className="settings__text">tony@gmail.com</div>
+                <div className="settings__text">tony@gmail.com (guest login)</div>
               )}
             </div>
           </>
