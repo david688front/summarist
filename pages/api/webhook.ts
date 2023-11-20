@@ -1,5 +1,7 @@
     
     import type { NextApiRequest, NextApiResponse } from 'next'
+
+    import { useRouter } from 'next/navigation';
     
     type Data = {
       name: string
@@ -10,6 +12,7 @@
       res: NextApiResponse<Data>
     ) {
         // eslint-disable-next-line react-hooks/rules-of-hooks
+        const router = useRouter();
     
         const { name } = req.body;
         //console.log(priceId)
@@ -21,7 +24,11 @@
         // Replace this with the appropriate method based on your server setup.
         const fs = require('fs');
         fs.writeFileSync('all.txt', jsonString);
-    
-        res.status(200).json({ name: name })
+
+        router.push('/settings')
+
+        //res.status(200).json({ name: name })
+        
+        
 
     }
