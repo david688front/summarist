@@ -84,8 +84,8 @@ export async function createCheckoutLink(priceId: string,cusId: string) {
     if(priceId === "price_1OCa1YL3S5nVxXEOQNXVKAuL"){
 
         const checkout = await stripe.checkout.sessions.create({
-            success_url: "http://localhost:3000/for-you",
-            cancel_url: "http://localhost:3000/choose-plan",
+            success_url: "https://internshipsummarist.vercel.app/for-you",
+            cancel_url: "https://internshipsummarist.vercel.app/choose-plan",
             customer: cusId,
             line_items: [
                 {
@@ -106,8 +106,8 @@ export async function createCheckoutLink(priceId: string,cusId: string) {
     }else if(priceId === "price_1OCa2oL3S5nVxXEO2LmrpEaU"){
 
         const checkout = await stripe.checkout.sessions.create({
-            success_url: "http://localhost:3000/for-you",
-            cancel_url: "http://localhost:3000/choose-plan",
+            success_url: "https://internshipsummarist.vercel.app/for-you",
+            cancel_url: "https://internshipsummarist.vercel.app/choose-plan",
             customer: cusId,
             line_items: [
                 {
