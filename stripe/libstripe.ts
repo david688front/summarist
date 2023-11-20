@@ -12,7 +12,7 @@ import {collection,setDoc,doc,deleteDoc,onSnapshot,DocumentData, addDoc} from "@
 import { useState } from 'react';
 
 
-export const stripe = new Stripe(String(process.env.STRIPE_SECRET_KEY), {
+export const stripe = new Stripe(String(process.env.NEXT_STRIPE_SECRET_KEY), {
     apiVersion: '2023-10-16',
 });
 
