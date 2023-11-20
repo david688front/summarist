@@ -15,7 +15,6 @@ function MyLibrary({ list }: Props) {
           {list.length === 1 ? `${list.length} item` : `${list.length} items`}
         </div>
         <BooksCard books={list} />
-
         {list.length === 0 && (
           <div className="finished__books--block-wrapper">
             <div className="finished__books--title">

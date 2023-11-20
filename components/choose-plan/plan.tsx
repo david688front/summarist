@@ -1,35 +1,49 @@
 import useAuth from "@/hooks/useAuth";
-// import { createCheckoutSession } from "@/stripe/createCheckoutSession";
+import { useRouter } from 'next/navigation';
 import { useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FaHandshake } from "react-icons/fa";
 import { IoDocumentTextSharp } from "react-icons/io5";
 import { RiPlantFill } from "react-icons/ri";
+import { createCheckoutLink,hasSubscription,getStripeCusId} from "@/stripe/libstripe";
 
 function PlanContent() {
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
   const [activePlan, setActivePlan] = useState<string>("yearly");
   const [selectedPlan, setSelectedPlan] = useState<string>("yearly");
-
   const handleActivePlan = (planName: string) => {
     setActivePlan(planName);
     setSelectedPlan(planName);
   };
 
-  const subscribeToPlan = () => {
+  const router = useRouter();
+  const handleCheckout = async () => {
+
     if (!user) return;
-
     setLoading(true);
-
     const priceId =
       selectedPlan === "yearly"
-        ? "price_1NijuY2eZvKYlo2CNmj2Cfeu"
-        : "price_1NijuY2eZvKYlo2CDuk4Vjzt";
-      
-    // test
-    //createCheckoutSession(user.uid, priceId);
+        ? "price_1OCa1YL3S5nVxXEOQNXVKAuL"
+        : "price_1OCa2oL3S5nVxXEO2LmrpEaU";
+
+    const cus_id = await getStripeCusId(String(user.email));
+    console.log(cus_id)
+    // has subscription
+    const hasSub = await hasSubscription(String(cus_id));
+    //console.log(hasSub)
+
+    if(hasSub === "yearly"){
+      return router.push('/for-you');
+    }else if(hasSub === "monthly"){
+      return router.push('/for-you');
+    }
+    const checkoutLink = await createCheckoutLink(String(priceId),String(cus_id));
+    router.push(String(checkoutLink))
+
+    
   };
+
 
   return (
     <div className="row">
@@ -69,7 +83,7 @@ function PlanContent() {
         {["yearly", "monthly"].map((plan) => (
           <>
             <div
-              key={plan}
+            key={plan}
               className={`plan__card ${
                 activePlan === plan ? "plan__card--active" : ""
               }`}
@@ -104,7 +118,7 @@ function PlanContent() {
           {activePlan === "yearly" ? (
             <>
               <span className="btn--wrapper">
-                <button className="btn" style={{width:'300px'}} onClick={subscribeToPlan}>
+                <button className="btn" style={{width:'300px'}} onClick={handleCheckout}>
                   {loading ? (
                     <AiOutlineLoading3Quarters className="loading__icon" />
                   ) : (
@@ -121,7 +135,7 @@ function PlanContent() {
           ) : (
             <>
               <span className="btn--wrapper">
-                <button className="btn" style={{width:'300px'}} onClick={subscribeToPlan}>
+                <button className="btn" style={{width:'300px'}} onClick={handleCheckout}>
                   {loading ? (
                     <AiOutlineLoading3Quarters className="loading__icon" />
                   ) : (

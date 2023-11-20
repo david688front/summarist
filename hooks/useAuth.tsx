@@ -46,18 +46,14 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const pathname = usePathname();
   const dispatch = useDispatch();
 
-  /// Persisting the user
   useEffect(
     () =>
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          // Logged in...
           setUser(user);
         } else {
-          // Not logged in...
           setUser(null);
         }
-
         setInitialLoading(false);
       }),
     [auth]

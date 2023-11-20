@@ -1,4 +1,3 @@
-import { Forward10Outlined, Replay10Outlined } from "@mui/icons-material";
 import { User } from "firebase/auth";
 import React, { useCallback, useEffect, useRef } from "react";
 import { BsFillPauseFill, BsFillPlayFill } from "react-icons/bs";

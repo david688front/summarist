@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 
 import useAuth from "@/hooks/useAuth";
 import { RootState } from "@/redux/modalStore";
-import { sideBarClose, sideBarOpen } from "@/redux/sideBarSlice";
+import { sideBarClose, sideBarOpen } from "@/redux/sidebar";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useSelector } from "react-redux";
@@ -22,7 +22,7 @@ import {
   fontSizeMedium,
   fontSizeSmall,
   fontSizeXLarge,
-} from "@/redux/fontSizeSlice";
+} from "@/redux/font";
 import Link from "next/link";
 
 function Sidebar() {

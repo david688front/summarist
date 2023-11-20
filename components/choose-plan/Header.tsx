@@ -10,8 +10,7 @@ function PlanHeader() {
         </div>
         <figure className="plan__img--mask">
           <img
-            src="https://summarist.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpricing-top.4d86e93a.png&w=1920&q=75"
-            alt="Plan Prices"
+            src="https://summarist.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpricing-top.4d86e93a.png&w=1080&q=75"
             style={{ color: "transparent" }}
           />
         </figure>

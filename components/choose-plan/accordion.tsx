@@ -31,7 +31,6 @@ function PlanAccordion() {
               </Typography>
             </AccordionDetails>
           </Accordion>
-
           <Accordion className="accordion__card">
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -53,7 +52,6 @@ function PlanAccordion() {
               </Typography>
             </AccordionDetails>
           </Accordion>
-
           <Accordion className="accordion__card">
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -75,7 +73,6 @@ function PlanAccordion() {
               </Typography>
             </AccordionDetails>
           </Accordion>
-
           <Accordion className="accordion__card">
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -101,5 +98,4 @@ function PlanAccordion() {
     </div>
   );
 }
-
 export default PlanAccordion;

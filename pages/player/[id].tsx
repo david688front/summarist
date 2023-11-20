@@ -3,7 +3,7 @@ import AudioPlayer from "@/components/player/AudioPlayer";
 import SearchBar from "@/components/library/SearchBar";
 import Sidebar from "@/components/library/Sidebar";
 import useAuth from "@/hooks/useAuth";
-import { audioPlayerOpen } from "@/redux/audioPlayerSlice";
+import { audioPlayerOpen } from "@/redux/player";
 import { BookObject } from "@/BookObject";
 import requests from "@/utils/requests";
 import axios from "axios";

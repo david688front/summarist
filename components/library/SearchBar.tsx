@@ -1,5 +1,5 @@
 import { RootState } from "@/redux/modalStore";
-import { sideBarClose, sideBarOpen } from "@/redux/sideBarSlice";
+import { sideBarClose, sideBarOpen } from "@/redux/sidebar";
 import { BookObject } from "@/BookObject";
 import requests from "@/utils/requests";
 import axios from "axios";
@@ -13,13 +13,10 @@ function SearchBar() {
   const [books, setBooks] = useState<BookObject[]>([]);
   const [loading, setLoading] = useState(false);
   const shouldRenderSearchBookCard = userInput.trim() !== "";
-
   const sideBar = useSelector((state: RootState) => state.sideBar.value);
   const dispatch = useDispatch();
-
   async function fetchSearchBook(search: string) {
     setLoading(true);
-
     try {
       const searchBookResponse = (
         await axios.get(requests.fetchSearchBook(search as string))
@@ -31,7 +28,6 @@ function SearchBar() {
       setLoading(false);
     }
   }
-
   const sideBarHandler = () => {
     if (sideBar === false) {
       dispatch(sideBarOpen());
@@ -39,18 +35,14 @@ function SearchBar() {
       dispatch(sideBarClose());
     }
   };
-
   useEffect(() => {
     if (userInput.trim() === "") {
       setBooks([]);
       return;
     }
-
     const getData = setTimeout(() => {
-      // Debounce
       fetchSearchBook(userInput);
-    }, 500);
-
+    }, 400);
     return () => clearTimeout(getData);
   }, [userInput]);
 

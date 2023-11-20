@@ -39,10 +39,12 @@ function SettingsComponent() {
             </div>
             <div className="setting__content">
               <div className="settings__sub--title">Email</div>
-              {user?.email ? (
+              {user?.email && user?.email !== "guest@gmail.com" ? (
                 <div className="settings__text">{user?.email}</div>
+              ) : user?.email && user?.email === "guest@gmail.com" ? (
+                <div className="settings__text">{user?.email} (guest login)</div>
               ) : (
-                <div className="settings__text">tony@gmail.com (guest login)</div>
+                <div className="settings__text"></div>
               )}
             </div>
           </>

@@ -34,25 +34,14 @@ function SummaryBook({
 
   const auth = getAuth(app);
   const subscription = useSubscription(app);
-
+  
   const [book, setBook] = useState<DocumentData | BookObject | null>(
     bookSummary || null
   );
   const [bookList, setBookList] = useState<DocumentData[] | BookObject[]>([]);
   const [addedToList, setAddedToList] = useState(false);
 
-  const noUserHandler = () => {
-    if (!user) {
-      dispatch(modalOpen());
-    } else if (
-      bookSummary?.subscriptionRequired &&
-      subscription.isActive === false
-    ) {
-      return (window.location.href = "/choose-plan");
-    } else {
-      router.push(`/player/${bookSummary?.id}`);
-    }
-  };
+
 
   useEffect(() => {
     if (!book) return;
@@ -92,6 +81,19 @@ function SummaryBook({
      
         dispatch(modalOpen());
       
+    }
+  };
+
+  const noUserHandler = () => {
+    if (!user) {
+      dispatch(modalOpen());
+    } else if (
+      bookSummary?.subscriptionRequired &&
+      subscription.isActive === false
+    ) {
+      return (window.location.href = "/choose-plan");
+    } else {
+      router.push(`/player/${bookSummary?.id}`);
     }
   };
 

@@ -1,6 +1,6 @@
-import PlanAccordion from "@/components/plan/PlanAccordion";
-import PlanContent from "@/components/plan/PlanContent";
-import PlanHeader from "@/components/plan/PlanHeader";
+import PlanAccordion from "@/components/choose-plan/accordion";
+import PlanContent from "@/components/choose-plan/plan";
+import PlanHeader from "@/components/choose-plan/Header";
 
 function ChoosePlan() {
   return (

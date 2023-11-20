@@ -12,14 +12,10 @@ import MyLibrary from "@/components/library/MyLibrary";
 
 function Library() {
   const modal = useSelector((state: RootState) => state.modal.value);
-
   const { user } = useAuth();
   const list = useList(user?.uid);
-
   const subscription = useSubscription(app);
-
   if (!subscription) return <ChoosePlan />;
-
   return (
       <div className="wrapper">
         {modal && <Authen />}

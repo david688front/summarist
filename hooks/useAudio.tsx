@@ -38,10 +38,8 @@ function useAudio(audioSrc: string) {
       const formatMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
       const seconds = Math.floor(time % 60);
       const formatSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
-      //   return `${formatMinutes}:${formatSeconds}`;
       return { formatMinutes, formatSeconds };
     }
-    // return "00:00";
     return { formatMinutes: "00", formatSeconds: "00" };
   };
 

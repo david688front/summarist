@@ -12,7 +12,7 @@ interface Inputs {
   password: string;
 }
 
-function Authentication() {
+function Authen() {
   const [loginModal, setLoginModal] = useState(true);
   const [forgotPasswordModal, setForgotPasswordModal] = useState(false);
   const { signIn, signUp, guestSignIn, loading, error } = useAuth();
@@ -34,7 +34,8 @@ function Authentication() {
   };
 
   const guestSignInHandler = async () => {
-    await guestSignIn();
+    //await guestSignIn();
+    await signIn("guest@gmail.com", "guest123");
   };
 
   const handleAuthClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -243,4 +244,4 @@ function Authentication() {
     </div>
   );
 }
-export default Authentication;
+export default Authen;
