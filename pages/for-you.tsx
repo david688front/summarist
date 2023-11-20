@@ -47,6 +47,7 @@ const ForYou = () => {
 
 
   return (
+
       <div className="wrapper">
         {modal && <Authentication />}
 

@@ -11,12 +11,30 @@ import useAuth from "@/hooks/useAuth";
 import {collection,setDoc,doc,deleteDoc,onSnapshot,DocumentData, addDoc} from "@firebase/firestore";
 import { useState } from 'react';
 
-
-export const stripe = new Stripe(String(process.env.NEXT_STRIPE_SECRET_KEY), {
-    apiVersion: '2023-10-16',
-});
+import { loadStripe } from '@stripe/stripe-js';
 
 
+
+// export const stripe = new Stripe(
+//     process.env.STRIPE_SECRET_KEY_LIVE ?? process.env.STRIPE_SECRET_KEY ?? '',{
+//     apiVersion: '2023-10-16',
+// });
+
+export const stripe = new Stripe(
+    process.env.NEXT_STRIPE_SECRET_KEY ?? process.env.STRIPE_SECRET_KEY ?? '',
+    {
+      apiVersion: '2023-10-16',
+    }
+);
+  
+
+// //export const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
+
+// async function initStripe() {
+//     const stripePromise = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
+//     return initStripe();
+// }
+  
 
 export async function getStripeCusId(email: string) {
 
