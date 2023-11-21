@@ -3,13 +3,12 @@ import { DocumentData } from "@firebase/firestore";
 import { getAuth } from "firebase/auth";
 import useAudio from "@/hooks/useAudio";
 import useAuth from "@/hooks/useAuth";
-import { useSubscription } from "@/hooks/useSubscription";
 import { AiOutlineStar } from "react-icons/ai";
 import { BiTimeFive } from "react-icons/bi";
 import { BookObject } from "@/BookObject";
 import Link from "next/link";
-
-
+import { useEffect, useState } from "react";
+import { getStripeCusId, hasSubscription } from "@/stripe/libstripe";
 
 interface Props {
   book: BookObject | DocumentData;
@@ -17,8 +16,26 @@ interface Props {
 
 function BookItem({ book }: Props) {
   const { user } = useAuth();
-  const subscription = useSubscription(app);
-  const auth = getAuth(app);
+  const [IsPremium, setIsPremium] = useState(false);
+
+  async function fetchSubscription() {
+   // setLoading(true);
+    try {
+      const cus_id = await getStripeCusId(String(user?.email));
+      // has subscription
+      const hasSub = await hasSubscription(String(cus_id));
+      if(hasSub !== "no")
+        setIsPremium(true);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      //setLoading(false);
+    }
+  }
+  useEffect(() => {
+    fetchSubscription();
+  }, []);
+
 
   const { duration, formatTime, audioRef, onLoadedMetadata } = useAudio(
     book?.audioLink || ""
@@ -27,7 +44,7 @@ function BookItem({ book }: Props) {
   return (
     <Link href={`/book/${book.id}`} key={book.id} className="for-you__recommended--books-link">
         {((!user && book.subscriptionRequired) ||
-          (book.subscriptionRequired && subscription.isActive === false)) && (
+          (book.subscriptionRequired && IsPremium === false)) && (
           <div className="book__pill book__pill--subscription-required">Premium</div>
         )}
         <audio

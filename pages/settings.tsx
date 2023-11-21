@@ -18,15 +18,11 @@ function Settings() {
   const { user } = useAuth();
 
   async function fetchSubscription() {
-
     setLoading(true);
-
     try {
-      
       const cus_id = await getStripeCusId(String(user?.email));
       // has subscription
       const hasSub = await hasSubscription(String(cus_id));
-
     } catch (error) {
       console.log(error);
     } finally {

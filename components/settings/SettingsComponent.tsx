@@ -1,17 +1,42 @@
-import app from "@/firebase";
 import useAuth from "@/hooks/useAuth";
-import { useSubscription } from "@/hooks/useSubscription";
 import Link from "next/link";
 import SettingsLogin from "./SettingsLogin";
+import { useEffect, useState } from "react";
+import { getStripeCusId, hasSubscription } from "@/stripe/libstripe";
 
 function SettingsComponent() {
   const { user } = useAuth();
-  const subscription = useSubscription(app);
 
-  const isUserPremium = subscription.isActive;
-  const premiumStatusName = subscription.subscriptionName;
+  const [IsPremium, setIsPremium] = useState(false);
+  const [PremiumPlanName, setPremiumPlanName] = useState("");
 
-  if (subscription.isLoading) return;
+  async function fetchSubscription() {
+   // setLoading(true);
+    try {
+      const cus_id = await getStripeCusId(String(user?.email));
+      // has subscription
+      const hasSub = await hasSubscription(String(cus_id));
+
+      if(hasSub === "no"){
+        setIsPremium(false);
+        setPremiumPlanName("basic")
+      }else if(hasSub === "yearly"){
+        setIsPremium(true);
+        setPremiumPlanName("premium-plus")
+      }else if(hasSub === "monthly"){
+        setIsPremium(true);
+        setPremiumPlanName("premium")
+      }
+
+    } catch (error) {
+      console.log(error);
+    } finally {
+      //setLoading(false);
+    }
+  }
+  useEffect(() => {
+    fetchSubscription();
+  }, []);
 
   return (
     <div className="container">
@@ -22,8 +47,8 @@ function SettingsComponent() {
             <div className="setting__content">
               <div className="settings__sub--title">Your Subscription Plan</div>
               <div className="settings__text">
-                {isUserPremium ? (
-                  premiumStatusName
+                {IsPremium === true ? (
+                  PremiumPlanName
                 ) : (
                   <>
                     Basic

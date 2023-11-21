@@ -1,6 +1,5 @@
 import app, { db } from "@/firebase";
 import useAuth from "@/hooks/useAuth";
-import { useSubscription } from "@/hooks/useSubscription";
 import { modalOpen } from "@/store/modalSlice";
 import { BookObject } from "@/BookObject";
 import {collection,setDoc,doc,deleteDoc,onSnapshot,DocumentData} from "@firebase/firestore";
@@ -12,6 +11,7 @@ import { BiTimeFive } from "react-icons/bi";
 import { BsBookmark, BsFillBookmarkCheckFill } from "react-icons/bs";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { useDispatch } from "react-redux";
+import { getStripeCusId, hasSubscription } from "@/stripe/libstripe";
 
 interface Props {
   bookSummary: BookObject | null;
@@ -33,13 +33,30 @@ function SummaryBook({
   const { user } = useAuth();
 
   const auth = getAuth(app);
-  const subscription = useSubscription(app);
-  
   const [book, setBook] = useState<DocumentData | BookObject | null>(
     bookSummary || null
   );
   const [bookList, setBookList] = useState<DocumentData[] | BookObject[]>([]);
   const [addedToList, setAddedToList] = useState(false);
+  const [IsPremium, setIsPremium] = useState(false);
+
+  async function fetchSubscription() {
+   // setLoading(true);
+    try {
+      const cus_id = await getStripeCusId(String(user?.email));
+      // has subscription
+      const hasSub = await hasSubscription(String(cus_id));
+      if(hasSub !== "no")
+        setIsPremium(true);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      //setLoading(false);
+    }
+  }
+  useEffect(() => {
+    fetchSubscription();
+  }, []);
 
 
 
@@ -89,7 +106,7 @@ function SummaryBook({
       dispatch(modalOpen());
     } else if (
       bookSummary?.subscriptionRequired &&
-      subscription.isActive === false
+      IsPremium === false
     ) {
       return (window.location.href = "/choose-plan");
     } else {
