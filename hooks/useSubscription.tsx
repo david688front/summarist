@@ -1,7 +1,8 @@
 import { getStripeCusId, hasSubscription } from "@/stripe/libstripe";
+import { useEffect, useState } from "react";
 import { FirebaseApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { useEffect, useState } from "react";
+
 export const useSubscription = (app: FirebaseApp) => {
   const auth = getAuth(app);
   const userId = auth.currentUser?.uid;

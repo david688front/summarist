@@ -8,6 +8,7 @@ import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import SearchBookCard from "../book/SearchBookCard";
 import Logo from "../../public/assets/logo.png";
+import Image from "next/image";
 
 function SearchBar() {
   const [userInput, setUserInput] = useState<string>("");
@@ -50,7 +51,7 @@ function SearchBar() {
   return (
     <div className="search__background">
       <div className="search__wrapper">
-      <figure><img src="{Logo}" alt=""/></figure>
+      <figure></figure>
         <div className="search__content">
           <div className="search">
             <div className="search__input--wrapper">
