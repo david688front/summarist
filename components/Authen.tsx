@@ -6,6 +6,7 @@ import { modalClose, modalOpen } from "@/store/modalSlice";
 import { AiOutlineClose, AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { BiSolidUser } from "react-icons/bi";
+import router from "next/router";
 
 interface Inputs {
   email: string;
@@ -27,14 +28,17 @@ function Authen() {
   const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
     if (loginModal) {
       await signIn(email, password);
+      router.push(`/for-you`);
     } else {
       await signUp(email, password);
+      router.push(`/for-you`);
     }
   };
 
   const guestSignInHandler = async () => {
     //await guestSignIn();
     await signIn("guest@gmail.com", "guest123");
+    router.push(`/for-you`);
   };
 
   const handleAuthClick = (e: React.MouseEvent<HTMLDivElement>) => {
