@@ -1,8 +1,8 @@
 import useAuth from "@/hooks/useAuth";
-import { RootState } from "@/redux/modalStore";
+import { RootState } from "@/store/modalStore";
 import { BookObject } from "@/BookObject";
 import { useSelector } from "react-redux";
-import SettingsLogin from "./SettingsLogin";
+import SettingsLogin from "../settings/SettingsLogin";
 import Authentication from "../Authen";
 
 interface Props {

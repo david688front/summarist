@@ -1,5 +1,5 @@
 import useAuth from "@/hooks/useAuth";
-import { modalClose, modalOpen } from "@/redux/modalSlice";
+import { modalClose, modalOpen } from "@/store/modalSlice";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { AiOutlineClose, AiOutlineLoading3Quarters } from "react-icons/ai";

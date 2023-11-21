@@ -5,7 +5,7 @@ import Header from "@/components/home/Header";
 import Landing from "@/components/home/Landing";
 import Numbers from "@/components/home/Numbers";
 import Reviews from "@/components/home/Reviews";
-import { RootState } from "@/redux/modalStore";
+import { RootState } from "@/store/modalStore";
 import Head from "next/head";
 import { useSelector } from "react-redux";
 

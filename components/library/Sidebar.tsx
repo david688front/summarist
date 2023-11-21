@@ -1,4 +1,4 @@
-import { modalOpen } from "@/redux/modalSlice";
+import { modalOpen } from "@/store/modalSlice";
 import {
   AiOutlineHome,
   AiOutlineSearch,
@@ -11,8 +11,8 @@ import { LiaHighlighterSolid } from "react-icons/lia";
 import { useDispatch } from "react-redux";
 
 import useAuth from "@/hooks/useAuth";
-import { RootState } from "@/redux/modalStore";
-import { sideBarClose, sideBarOpen } from "@/redux/sidebar";
+import { RootState } from "@/store/modalStore";
+import { sideBarClose, sideBarOpen } from "@/store/sidebar";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useSelector } from "react-redux";
@@ -22,7 +22,7 @@ import {
   fontSizeMedium,
   fontSizeSmall,
   fontSizeXLarge,
-} from "@/redux/font";
+} from "@/store/font";
 import Link from "next/link";
 
 function Sidebar() {

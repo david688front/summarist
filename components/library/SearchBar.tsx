@@ -1,12 +1,13 @@
-import { RootState } from "@/redux/modalStore";
-import { sideBarClose, sideBarOpen } from "@/redux/sidebar";
+import { RootState } from "@/store/modalStore";
+import { sideBarClose, sideBarOpen } from "@/store/sidebar";
 import { BookObject } from "@/BookObject";
-import requests from "@/utils/requests";
+import requests from "@/request/requests";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import SearchBookCard from "../book/SearchBookCard";
+import Logo from "../../public/assets/logo.png";
 
 function SearchBar() {
   const [userInput, setUserInput] = useState<string>("");
@@ -49,7 +50,7 @@ function SearchBar() {
   return (
     <div className="search__background">
       <div className="search__wrapper">
-      <figure><img src="logo" alt=""/></figure>
+      <figure><img src="{Logo}" alt=""/></figure>
         <div className="search__content">
           <div className="search">
             <div className="search__input--wrapper">

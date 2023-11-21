@@ -2,7 +2,7 @@ import app from "@/firebase";
 import useAuth from "@/hooks/useAuth";
 import useList from "@/hooks/useList";
 import { useSubscription } from "@/hooks/useSubscription";
-import { RootState } from "@/redux/modalStore";
+import { RootState } from "@/store/modalStore";
 import { useSelector } from "react-redux";
 import ChoosePlan from "./choose-plan";
 import Authen from "@/components/Authen";

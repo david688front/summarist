@@ -1,7 +1,7 @@
 import app, { db } from "@/firebase";
 import useAuth from "@/hooks/useAuth";
 import { useSubscription } from "@/hooks/useSubscription";
-import { modalOpen } from "@/redux/modalSlice";
+import { modalOpen } from "@/store/modalSlice";
 import { BookObject } from "@/BookObject";
 import {collection,setDoc,doc,deleteDoc,onSnapshot,DocumentData} from "@firebase/firestore";
 import { getAuth } from "firebase/auth";

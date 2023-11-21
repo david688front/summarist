@@ -1,4 +1,4 @@
-import { modalOpen } from "@/redux/modalSlice";
+import { modalOpen } from "@/store/modalSlice";
 import { BsStarFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 

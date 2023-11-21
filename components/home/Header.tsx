@@ -1,4 +1,4 @@
-import { modalOpen } from "@/redux/modalSlice";
+import { modalOpen } from "@/store/modalSlice";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import Logo from "../../public/assets/logo.png";

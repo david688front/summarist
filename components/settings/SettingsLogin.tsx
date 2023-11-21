@@ -1,4 +1,4 @@
-import { modalOpen } from "@/redux/modalSlice";
+import { modalOpen } from "@/store/modalSlice";
 import { useDispatch } from "react-redux";
 
 function SettingsLogin() {

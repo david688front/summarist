@@ -1,5 +1,5 @@
 import { auth } from "@/firebase";
-import { modalClose } from "@/redux/modalSlice";
+import { modalClose } from "@/store/modalSlice";
 import {
   User,
   createUserWithEmailAndPassword,
@@ -12,7 +12,6 @@ import { usePathname } from "next/navigation";
 import { useRouter } from "next/router";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
-
 interface IAuth {
   user: User | null;
   signUp: (email: string, password: string) => Promise<void>;
@@ -22,7 +21,6 @@ interface IAuth {
   error: string | null;
   loading: boolean;
 }
-
 const AuthContext = createContext<IAuth>({
   user: null,
   signUp: async () => {},
@@ -32,11 +30,9 @@ const AuthContext = createContext<IAuth>({
   error: null,
   loading: false,
 });
-
 interface AuthProviderProps {
   children: React.ReactNode;
 }
-
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState<User | null>(null);
@@ -45,7 +41,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const router = useRouter();
   const pathname = usePathname();
   const dispatch = useDispatch();
-
   useEffect(
     () =>
       onAuthStateChanged(auth, (user) => {
@@ -58,20 +53,16 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       }),
     [auth]
   );
-
   const signUp = async (email: string, password: string) => {
     setLoading(true);
-
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setUser(userCredential.user);
-
         const redirectPath =
           pathname === "" || pathname === "/" ? "/for-you" : pathname;
         router.push(redirectPath);
         setLoading(false);
         dispatch(modalClose());
-
       })
       .catch((error) => setError(error.message.replace("Firebase: ", "")))
       .finally(() => {
@@ -81,7 +72,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const signIn = async (email: string, password: string) => {
     setLoading(true);
-
     await signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setUser(userCredential.user);
@@ -99,7 +89,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const guestSignIn = async () => {
     setLoading(true);
-
     await signInAnonymously(auth)
       .then((userCredential) => {
         setUser(userCredential.user);
@@ -117,7 +106,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const logout = async () => {
     setLoading(true);
-
     signOut(auth)
       .then(() => {
         setUser(null);
@@ -141,14 +129,12 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }),
     [user, loading]
   );
-
   return (
     <AuthContext.Provider value={memoedValue}>
       {!initialLoading && children}
     </AuthContext.Provider>
   );
 };
-
 export default function useAuth() {
   return useContext(AuthContext);
 }

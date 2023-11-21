@@ -1,5 +1,5 @@
 import useAuth from "@/hooks/useAuth";
-import { audioPlayerOpen } from "@/redux/player";
+import { audioPlayerOpen } from "@/store/player";
 import { BookObject } from "@/BookObject";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";

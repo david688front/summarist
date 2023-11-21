@@ -1,5 +1,5 @@
 import { AuthProvider } from "@/hooks/useAuth";
-import { modalStore } from "@/redux/modalStore";
+import { modalStore } from "@/store/modalStore";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
