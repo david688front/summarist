@@ -22,5 +22,4 @@ export const audioPlayerSlice = createSlice({
 });
 
 export const { audioPlayerOpen, audioPlayerClose } = audioPlayerSlice.actions;
-
 export default audioPlayerSlice.reducer;

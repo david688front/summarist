@@ -1,10 +1,10 @@
-import useAuth from "@/hooks/useAuth";
-import { useRouter } from 'next/navigation';
 import { useState } from "react";
+import { useRouter } from 'next/navigation';
+import useAuth from "@/hooks/useAuth";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { RiPlantFill } from "react-icons/ri";
 import { FaHandshake } from "react-icons/fa";
 import { IoDocumentTextSharp } from "react-icons/io5";
-import { RiPlantFill } from "react-icons/ri";
 import { createCheckoutLink,hasSubscription,getStripeCusId} from "@/stripe/libstripe";
 
 function PlanContent() {

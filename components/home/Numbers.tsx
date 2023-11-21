@@ -1,6 +1,6 @@
 import { BiCrown } from "react-icons/bi";
-import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { RiLeafLine } from "react-icons/ri";
+import { BsStarFill, BsStarHalf } from "react-icons/bs";
 
 function Numbers() {
   return (

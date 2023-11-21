@@ -1,18 +1,17 @@
-import Authentication from "@/components/Authen";
-import SelectedBookSkel from "@/components/skeleton/SelectedBookSkel";
-import SearchBar from "@/components/library/SearchBar";
-import SelectedBooks from "@/components/library/SelectedBooks";
-import Sidebar from "@/components/library/Sidebar";
-import { RootState } from "@/store/modalStore";
-import { BookObject } from "@/BookObject";
-import requests from "@/request/requests";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import SearchBar from "@/components/library/SearchBar";
+import SelectedBooks from "@/components/library/SelectedBooks";
+import Authentication from "@/components/Authen";
+import SelectedBookSkel from "@/components/skeleton/SelectedBookSkel";
+import Sidebar from "@/components/library/Sidebar";
+import requests from "@/request/requests";
+import axios from "axios";
+import { RootState } from "@/store/modalStore";
+import { BookObject } from "@/BookObject";
 
 const ForYou = () => {
   const modal = useSelector((state: RootState) => state.modal.value);
-
   const [loading, setLoading] = useState(false);
   const [selectedBook, setSelectedBook] = useState<BookObject | null>(null);
   const [recommendedBooks, setRecommendedBooks] = useState<BookObject[]>([]);
@@ -45,15 +44,11 @@ const ForYou = () => {
     fetchBooks();
   }, []);
 
-
   return (
-
       <div className="wrapper">
         {modal && <Authentication />}
-
         <SearchBar />
         <Sidebar />
-
         {loading ? (
           <SelectedBookSkel/>
         ) : (

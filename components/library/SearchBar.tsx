@@ -1,14 +1,12 @@
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/modalStore";
 import { sideBarClose, sideBarOpen } from "@/store/sidebar";
-import { BookObject } from "@/BookObject";
-import requests from "@/request/requests";
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
 import SearchBookCard from "../book/SearchBookCard";
-import Logo from "../../public/assets/logo.png";
-import Image from "next/image";
+import { BookObject } from "@/BookObject";
+import axios from "axios";
+import requests from "@/request/requests";
 
 function SearchBar() {
   const [userInput, setUserInput] = useState<string>("");

@@ -1,5 +1,5 @@
-import { User } from "firebase/auth";
 import React, { useCallback, useEffect, useRef } from "react";
+import { User } from "firebase/auth";
 import { BsFillPauseFill, BsFillPlayFill } from "react-icons/bs";
 
 interface Props {

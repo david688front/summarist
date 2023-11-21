@@ -1,9 +1,9 @@
-import useAuth from "@/hooks/useAuth";
+import { useSelector } from "react-redux";
 import { RootState } from "@/store/modalStore";
 import { BookObject } from "@/BookObject";
-import { useSelector } from "react-redux";
 import SettingsLogin from "../settings/SettingsLogin";
-import Authentication from "../Authen";
+import useAuth from "@/hooks/useAuth";
+import Authen from "../Authen";
 
 interface Props {
   bookSummary: BookObject | null;
@@ -11,12 +11,11 @@ interface Props {
 
 function Summary({ bookSummary }: Props) {
   const { user } = useAuth();
-
   const modal = useSelector((state: RootState) => state.modal.value);
   const fontSize = useSelector((state: RootState) => state.fontSize.value);
 
   if (modal) {
-    return <Authentication />;
+    return <Authen />;
   }
 
   return (

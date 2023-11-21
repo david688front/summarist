@@ -1,29 +1,19 @@
-import { modalOpen } from "@/store/modalSlice";
-import {
-  AiOutlineHome,
-  AiOutlineSearch,
-  AiOutlineSetting,
-} from "react-icons/ai";
-import { BiHelpCircle, BiLogIn } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { RxLetterCaseCapitalize } from "react-icons/rx";
+import { AiOutlineSearch,AiOutlineHome,AiOutlineSetting} from "react-icons/ai";
+import { BiHelpCircle, BiLogIn } from "react-icons/bi";
 import { BsBookmark } from "react-icons/bs";
 import { LiaHighlighterSolid } from "react-icons/lia";
-import { useDispatch } from "react-redux";
-
-import useAuth from "@/hooks/useAuth";
+import { modalOpen } from "@/store/modalSlice";
 import { RootState } from "@/store/modalStore";
+import { fontSizeLarge,fontSizeMedium,fontSizeSmall,fontSizeXLarge} from "@/store/font";
+import { usePathname } from "next/navigation";
 import { sideBarClose, sideBarOpen } from "@/store/sidebar";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { useSelector } from "react-redux";
 import Logo from "../../public/assets/logo.png";
-import {
-  fontSizeLarge,
-  fontSizeMedium,
-  fontSizeSmall,
-  fontSizeXLarge,
-} from "@/store/font";
 import Link from "next/link";
+import useAuth from "@/hooks/useAuth";
 
 function Sidebar() {
   const audioPlayer = useSelector(
@@ -77,7 +67,6 @@ function Sidebar() {
               </div>
               <div className="sidebar__link--text">For you</div>
             </Link>
-
             <Link href="/library" className="sidebar__link--wrapper">
               <div
                 className={`sidebar__link--line ${
@@ -89,29 +78,20 @@ function Sidebar() {
               </div>
               <div className="sidebar__link--text">My Library</div>
             </Link>
-
-            <Link
-              href=""
-              className="sidebar__link--wrapper sidebar__link--not-allowed"
-            >
+            <Link href="" className="sidebar__link--wrapper sidebar__link--not-allowed" >
               <div className={`sidebar__link--line`}></div>
               <div className="sidebar__icon--wrapper">
                 <LiaHighlighterSolid className="sidebar__icons" />
               </div>
               <div className="sidebar__link--text">Highlights</div>
             </Link>
-
-            <Link
-              href=""
-              className="sidebar__link--wrapper sidebar__link--not-allowed"
-            >
+              <Link href="" className="sidebar__link--wrapper sidebar__link--not-allowed">
               <div className="sidebar__link--line"></div>
               <div className="sidebar__icon--wrapper">
                 <AiOutlineSearch className="sidebar__icons" />
               </div>
               <div className="sidebar__link--text">Search</div>
             </Link>
-
             {pathname && pathname.startsWith("/player") && (
               <div className="sidebar__link--wrapper sidebar__font--size-wrapper">
                 <div
@@ -165,7 +145,6 @@ function Sidebar() {
               </div>
             )}
           </div>
-
           <div className="sidebar__bottom">
             <Link href="/settings" className="sidebar__link--wrapper">
               <div
@@ -178,17 +157,13 @@ function Sidebar() {
               </div>
               <div className="sidebar__link--text">Settings</div>
             </Link>
-            <div
-              
-              className="sidebar__link--wrapper sidebar__link--not-allowed"
-            >
+            <div className="sidebar__link--wrapper sidebar__link--not-allowed">
               <div className={`sidebar__link--line`}></div>
               <div className="sidebar__icon--wrapper">
                 <BiHelpCircle className="sidebar__icons" />
               </div>
               <div className="sidebar__link--text ">Help & Support</div>
             </div>
-
             {user ? (
               <div className="sidebar__link--wrapper" onClick={logout}>
                 <div className={`sidebar__link--line `}></div>

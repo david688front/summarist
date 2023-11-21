@@ -1,8 +1,8 @@
+import Link from "next/link";
+import useAudio from "@/hooks/useAudio";
 import { BookObject } from "@/BookObject";
 import { BsPlayFill } from "react-icons/bs";
 import BooksCard from "../book/BooksCard";
-import useAudio from "@/hooks/useAudio";
-import Link from "next/link";
 
 interface Props {
   selectedBook: BookObject | null;

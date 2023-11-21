@@ -1,8 +1,8 @@
-import useAuth from "@/hooks/useAuth";
+import app from "@/firebase";
 import Link from "next/link";
 import SettingsLogin from "./SettingsLogin";
 import { useSubscription } from "@/hooks/useSubscription";
-import app from "@/firebase";
+import useAuth from "@/hooks/useAuth";
 
 interface Props {
   IsPremium: boolean;

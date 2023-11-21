@@ -2,7 +2,6 @@ import { DocumentData } from "@firebase/firestore";
 import { BookObject } from "@/BookObject";
 import BookItem from "./BookItem";
 
-
 interface Props {
   books: BookObject[] | DocumentData[];
 }

@@ -31,5 +31,4 @@ function DisplayTrack({ book }: Props) {
     </div>
   );
 }
-
 export default DisplayTrack;

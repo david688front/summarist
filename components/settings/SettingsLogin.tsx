@@ -1,5 +1,5 @@
-import { modalOpen } from "@/store/modalSlice";
 import { useDispatch } from "react-redux";
+import { modalOpen } from "@/store/modalSlice";
 
 function SettingsLogin() {
   const dispatch = useDispatch();

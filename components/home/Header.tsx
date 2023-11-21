@@ -1,8 +1,8 @@
-import { modalOpen } from "@/store/modalSlice";
-import Image from "next/image";
 import { useDispatch } from "react-redux";
-import Logo from "../../public/assets/logo.png";
 import Link from "next/link";
+import Image from "next/image";
+import { modalOpen } from "@/store/modalSlice";
+import Logo from "../../public/assets/logo.png";
 
 function Header() {
   const dispatch = useDispatch();

@@ -1,11 +1,11 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { SubmitHandler, useForm } from "react-hook-form";
 import useAuth from "@/hooks/useAuth";
 import { modalClose, modalOpen } from "@/store/modalSlice";
-import { useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
 import { AiOutlineClose, AiOutlineLoading3Quarters } from "react-icons/ai";
-import { BiSolidUser } from "react-icons/bi";
 import { FcGoogle } from "react-icons/fc";
-import { useDispatch } from "react-redux";
+import { BiSolidUser } from "react-icons/bi";
 
 interface Inputs {
   email: string;
@@ -16,7 +16,6 @@ function Authen() {
   const [loginModal, setLoginModal] = useState(true);
   const [forgotPasswordModal, setForgotPasswordModal] = useState(false);
   const { signIn, signUp, guestSignIn, loading, error } = useAuth();
-
   const dispatch = useDispatch();
 
   const {
@@ -39,7 +38,6 @@ function Authen() {
   };
 
   const handleAuthClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    // Prevent the click event from propagating to auth__wrapper
     e.stopPropagation();
   };
 
@@ -50,7 +48,6 @@ function Authen() {
           <>
             <div className="auth__content">
               <div className="auth__title">Reset your password</div>
-
               <form
                 action=""
                 className="auth__main--form"
@@ -67,7 +64,6 @@ function Authen() {
                 </button>
               </form>
             </div>
-
             <button
               className="auth__switch--btn"
               onClick={() => {
@@ -89,31 +85,23 @@ function Authen() {
                   guestSignInHandler();
                 }}
               >
-
-<figure className="google__icon--mask guest__icon--mask">
-<BiSolidUser className="guest__icon" />
-</figure>
-
+            <figure className="google__icon--mask guest__icon--mask">
+              <BiSolidUser className="guest__icon" />
+            </figure>
                 Login as a Guest
               </button>
               <div className="auth__separator">
                 <span className="auth__separator--text">or</span>
               </div>
               <button className="btn google__btn--wrapper">
-
                 <figure className="google__icon--mask">
                   <FcGoogle className="google__icon" />
                 </figure>
-
                 Login with Google
-
               </button>
-
               <div className="auth__separator">
                 <span className="auth__separator--text">or</span>
               </div>
-
-    
               <form
                 action=""
                 className="auth__main--form"
@@ -125,7 +113,6 @@ function Authen() {
                   placeholder="Email Address"
                   {...register("email", { required: true })}
                 />
-
                 <input
                   type="password"
                   className="auth__main--input"
@@ -137,7 +124,6 @@ function Authen() {
                     Your password must contain between 4 and 60 characters.
                   </p>
                 )}
-
                 <button className="btn">
                   {loading ? (
                     <span>
@@ -168,20 +154,16 @@ function Authen() {
           <>
             <div className="auth__content">
               <div className="auth__title">Sign up to Summarist</div>
-              
               <button className="btn google__btn--wrapper">
                 <div className="guest__icon--wrapper">
                   <FcGoogle className="google__icon" />
                 </div>
                 Sign up with Google
               </button>
-
               <div className="auth__separator">
                 <span className="auth__separator--text">or</span>
               </div>
-
               <div className="auth__error">{error ? `Firebase: ${error}` : null}</div>
-
               <form
                 action=""
                 className="auth__main--form"
@@ -193,7 +175,6 @@ function Authen() {
                   placeholder="Email Address"
                   {...register("email", { required: true })}
                 />
-
                 <input
                   type="password"
                   className="auth__main--input"
@@ -205,7 +186,6 @@ function Authen() {
                     Your password must contain between 4 and 60 characters.
                   </p>
                 )}
-
                 <button
                   className="btn"
                   onClick={() => {
@@ -222,7 +202,6 @@ function Authen() {
                 </button>
               </form>
             </div>
-
             <button
               className="auth__switch--btn"
               onClick={() => setLoginModal(true)}
@@ -231,7 +210,6 @@ function Authen() {
             </button>
           </>
         )}
-
         <div
           className="auth__close--btn"
           onClick={() => {

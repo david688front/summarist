@@ -1,11 +1,11 @@
-import useAuth from "@/hooks/useAuth";
-import { audioPlayerOpen } from "@/store/player";
-import { BookObject } from "@/BookObject";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import Controls from "./Controls";
+import useAuth from "@/hooks/useAuth";
 import DisplayTrack from "./DisplayTrack";
 import ProgressBar from "./ProgressBar";
+import Controls from "./Controls";
+import { audioPlayerOpen } from "@/store/player";
+import { BookObject } from "@/BookObject";
 
 interface Props {
   book: BookObject | null;

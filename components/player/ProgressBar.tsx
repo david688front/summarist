@@ -1,6 +1,5 @@
 import useAudio from "@/hooks/useAudio";
 import React, { ChangeEvent } from "react";
-
 interface Props {
   progressBarRef: React.RefObject<HTMLInputElement>;
   audioRef: React.RefObject<HTMLAudioElement>;
@@ -8,7 +7,6 @@ interface Props {
   duration: number;
   audioLink?: string | null;
 }
-
 function ProgressBar({
   progressBarRef,
   audioRef,
@@ -22,9 +20,7 @@ function ProgressBar({
       audioRef.current.currentTime = currentTime;
     }
   };
-
   const { formatTime } = useAudio(audioLink || "");
-
   return (
     <div className="audio__progress--wrapper">
       <div className="audio__time">
@@ -45,5 +41,4 @@ function ProgressBar({
     </div>
   );
 }
-
 export default ProgressBar;

@@ -1,16 +1,16 @@
+import { useEffect, useState } from "react";
 import app, { db } from "@/firebase";
-import useAuth from "@/hooks/useAuth";
-import { modalOpen } from "@/store/modalSlice";
-import { BookObject } from "@/BookObject";
 import {collection,setDoc,doc,deleteDoc,onSnapshot,DocumentData} from "@firebase/firestore";
 import { getAuth } from "firebase/auth";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { modalOpen } from "@/store/modalSlice";
+import { BookObject } from "@/BookObject";
+import { HiOutlineLightBulb } from "react-icons/hi";
 import { AiOutlineAudio, AiOutlineRead, AiOutlineStar } from "react-icons/ai";
 import { BiTimeFive } from "react-icons/bi";
 import { BsBookmark, BsFillBookmarkCheckFill } from "react-icons/bs";
-import { HiOutlineLightBulb } from "react-icons/hi";
+import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
+import useAuth from "@/hooks/useAuth";
 import { getStripeCusId, hasSubscription } from "@/stripe/libstripe";
 
 interface Props {
@@ -58,8 +58,6 @@ function SummaryBook({
     fetchSubscription();
   }, []);
 
-
-
   useEffect(() => {
     if (!book) return;
 
@@ -70,7 +68,6 @@ function SummaryBook({
       );
     }
   }, [db, book?.id]);
-
 
   useEffect(() => {
     if (bookList && book && book.id) {

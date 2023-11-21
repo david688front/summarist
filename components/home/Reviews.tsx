@@ -1,6 +1,7 @@
+import { useDispatch } from "react-redux";
 import { modalOpen } from "@/store/modalSlice";
 import { BsStarFill } from "react-icons/bs";
-import { useDispatch } from "react-redux";
+
 
 function Reviews() {
   const dispatch = useDispatch();

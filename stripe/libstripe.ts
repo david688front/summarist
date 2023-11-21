@@ -7,12 +7,10 @@ export const stripe = new Stripe(
 );
   
 export async function getStripeCusId(email: string) {
-
     if (email) {
         const customer = await stripe.customers.list({
             email: email
         })
-
         if(customer.data.length === 0){
             const customer = await stripe.customers.create({
                 email: String(email)
@@ -29,17 +27,12 @@ export async function getStripeCusId(email: string) {
 
 export async function hasSubscription(customer: string) {
     if (customer) {
-
        try {
-
         const subscriptions = await stripe.subscriptions.list({
             customer: String(customer)
         })
-
         //console.log(subscriptions.data)
-
         if(subscriptions.data[0]){
-
             if( (subscriptions.data[0].status === "active" || subscriptions.data[0].status === "trialing" )  && subscriptions.data[0].items.data[0].plan.id === process.env.NEXT_PUBLIC_YEARLY_PLAN){
                 return "yearly";
             }else if( (subscriptions.data[0].status === "active" || subscriptions.data[0].status === "trialing")  && subscriptions.data[0].items.data[0].plan.id === process.env.NEXT_PUBLIC_MONTHLY_PLAN){
@@ -47,22 +40,17 @@ export async function hasSubscription(customer: string) {
             }else{
                 return "no";
             }
-
         }else{
             return "no";
         }
-
        }catch (error) {
          return "no";
        }
     }
 }
 
-
 export async function createCheckoutLink(priceId: string,cusId: string) {
-
     if(priceId === process.env.NEXT_PUBLIC_YEARLY_PLAN){
-
         const checkout = await stripe.checkout.sessions.create({
             success_url: `${window.location.origin}/settings`,
             cancel_url: `${window.location.origin}/choose-plan`,
@@ -82,9 +70,7 @@ export async function createCheckoutLink(priceId: string,cusId: string) {
             },
         })
         return checkout.url;
-
     }else if(priceId === process.env.NEXT_PUBLIC_MONTHLY_PLAN){
-
         const checkout = await stripe.checkout.sessions.create({
             success_url: `${window.location.origin}/settings`,
             cancel_url: `${window.location.origin}/choose-plan`,
@@ -98,6 +84,5 @@ export async function createCheckoutLink(priceId: string,cusId: string) {
             mode: "subscription",
         })
         return checkout.url;
-        
     }
 }

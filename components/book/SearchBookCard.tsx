@@ -6,7 +6,6 @@ interface Props {
 }
 
 function SearchBookCard({ books }: Props) {
-  
   return (
     <div className="search__books--wrapper">
       {books.map((book) => (

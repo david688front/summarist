@@ -1,31 +1,27 @@
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import SearchBar from "@/components/library/SearchBar";
+import Sidebar from "@/components/library/Sidebar";
 import Authentication from "@/components/Authen";
 import SummaryBookSkel from "@/components/skeleton/SummaryBookSkel";
 import SummaryBook from "@/components/book/SummaryBook";
-import SearchBar from "@/components/library/SearchBar";
-import Sidebar from "@/components/library/Sidebar";
-import useAudio from "@/hooks/useAudio";
-import { RootState } from "@/store/modalStore";
-import { BookObject } from "@/BookObject";
 import requests from "@/request/requests";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { BookObject } from "@/BookObject";
+import useAudio from "@/hooks/useAudio";
+import { RootState } from "@/store/modalStore";
 
 function BookDetail() {
   const modal = useSelector((state: RootState) => state.modal.value);
-
   const router = useRouter();
   const { id } = router.query;
-
   const [bookSummary, setBookSummary] = useState<BookObject | null>(null);
   const [loading, setLoading] = useState(false);
-
   const { duration, formatTime, audioRef, onLoadedMetadata } = useAudio(
     bookSummary?.audioLink || ""
   );
   const { formatMinutes, formatSeconds } = formatTime(duration);
-
   async function fetchBook() {
     setLoading(true);
     try {
