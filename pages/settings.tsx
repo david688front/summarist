@@ -36,7 +36,6 @@ function Settings() {
         setIsPremium(true);
         setPremiumPlanName("premium")
       }
-      
     } catch (error) {
       console.log(error);
     } finally {
@@ -55,7 +54,6 @@ function Settings() {
         {loading ? (
           <SettingsSkel/>
         ) : (
-          // <SettingsComponent />
           <SettingsComponent {...{ IsPremium, PremiumPlanName }} />
         )}
       </div>
