@@ -123,7 +123,11 @@ function SummaryBook({
         <div className="inner__wrapper">
           <div className="inner__book">
 
-            <div className="inner-book__title">{bookSummary?.title}</div>
+            <div className="inner-book__title">{bookSummary?.title}
+            { IsPremium === false ? (
+                <> ( Premium ) </>
+            ):( <></> )}
+            </div>
             <div className="inner-book__author">
               {bookSummary?.author}
             </div>
