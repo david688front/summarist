@@ -36,11 +36,13 @@ export async function hasSubscription(customer: string) {
             customer: String(customer)
         })
 
+        //console.log(subscriptions.data)
+
         if(subscriptions.data[0]){
 
-            if(subscriptions.data[0].status === "active" && subscriptions.data[0].items.data[0].plan.id === "price_1OCa1YL3S5nVxXEOQNXVKAuL"){
+            if( (subscriptions.data[0].status === "active" || subscriptions.data[0].status === "trialing" )  && subscriptions.data[0].items.data[0].plan.id === process.env.NEXT_PUBLIC_YEARLY_PLAN){
                 return "yearly";
-            }else if(subscriptions.data[0].status === "active" && subscriptions.data[0].items.data[0].plan.id === "price_1OCa2oL3S5nVxXEO2LmrpEaU"){
+            }else if( (subscriptions.data[0].status === "active" || subscriptions.data[0].status === "trialing")  && subscriptions.data[0].items.data[0].plan.id === process.env.NEXT_PUBLIC_MONTHLY_PLAN){
                 return "monthly";
             }else{
                 return "no";
@@ -59,11 +61,11 @@ export async function hasSubscription(customer: string) {
 
 export async function createCheckoutLink(priceId: string,cusId: string) {
 
-    if(priceId === "price_1OCa1YL3S5nVxXEOQNXVKAuL"){
+    if(priceId === process.env.NEXT_PUBLIC_YEARLY_PLAN){
 
         const checkout = await stripe.checkout.sessions.create({
-            success_url: "https://internshipsummarist.vercel.app/settings",
-            cancel_url: "https://internshipsummarist.vercel.app/choose-plan",
+            success_url: `${window.location.origin}/settings`,
+            cancel_url: `${window.location.origin}/choose-plan`,
             customer: cusId,
             line_items: [
                 {
@@ -81,11 +83,11 @@ export async function createCheckoutLink(priceId: string,cusId: string) {
         })
         return checkout.url;
 
-    }else if(priceId === "price_1OCa2oL3S5nVxXEO2LmrpEaU"){
+    }else if(priceId === process.env.NEXT_PUBLIC_MONTHLY_PLAN){
 
         const checkout = await stripe.checkout.sessions.create({
-            success_url: "https://internshipsummarist.vercel.app/settings",
-            cancel_url: "https://internshipsummarist.vercel.app/choose-plan",
+            success_url: `${window.location.origin}/settings`,
+            cancel_url: `${window.location.origin}/choose-plan`,
             customer: cusId,
             line_items: [
                 {
