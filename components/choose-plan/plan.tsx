@@ -24,8 +24,8 @@ function PlanContent() {
     setLoading(true);
     const priceId =
       selectedPlan === "yearly"
-        ? "price_1OCa1YL3S5nVxXEOQNXVKAuL"
-        : "price_1OCa2oL3S5nVxXEO2LmrpEaU";
+        ? process.env.NEXT_PUBLIC_YEARLY_PLAN
+        : process.env.NEXT_PUBLIC_MONTHLY_PLAN;
 
     const cus_id = await getStripeCusId(String(user.email));
     console.log(cus_id)

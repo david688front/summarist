@@ -14,7 +14,6 @@
     "@firebase/app": "^0.9.22",
     "@firebase/auth": "^1.3.2",
     "@firebase/firestore": "^4.3.2",
-    "@invertase/firestore-stripe-payments": "^0.0.7",
     "@mui/icons-material": "^5.14.15",
     "@mui/material": "^5.14.15",
     "@reduxjs/toolkit": "^1.9.7",
