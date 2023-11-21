@@ -64,8 +64,10 @@ export async function createCheckoutLink(priceId: string,cusId: string) {
     if(priceId === process.env.NEXT_PUBLIC_YEARLY_PLAN){
 
         const checkout = await stripe.checkout.sessions.create({
-            success_url: `${window.location.origin}/settings`,
-            cancel_url: `${window.location.origin}/choose-plan`,
+            //success_url: `${window.location.origin}/settings`,
+            //cancel_url: `${window.location.origin}/choose-plan`,
+            success_url: `${process.env.NEXT_PUBLIC_APP_URL}/settings`,
+            cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/choose-plan`,
             customer: cusId,
             line_items: [
                 {
@@ -86,8 +88,10 @@ export async function createCheckoutLink(priceId: string,cusId: string) {
     }else if(priceId === process.env.NEXT_PUBLIC_MONTHLY_PLAN){
 
         const checkout = await stripe.checkout.sessions.create({
-            success_url: `${window.location.origin}/settings`,
-            cancel_url: `${window.location.origin}/choose-plan`,
+            //success_url: `${window.location.origin}/settings`,
+            //cancel_url: `${window.location.origin}/choose-plan`,
+            success_url: `${process.env.NEXT_PUBLIC_APP_URL}/settings`,
+            cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/choose-plan`,
             customer: cusId,
             line_items: [
                 {
