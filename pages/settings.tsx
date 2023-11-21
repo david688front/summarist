@@ -16,6 +16,8 @@ function Settings() {
   const [loading, setLoading] = useState(false);
 
   const { user } = useAuth();
+  const [IsPremium, setIsPremium] = useState(false);
+  const [PremiumPlanName, setPremiumPlanName] = useState("");
 
   async function fetchSubscription() {
     setLoading(true);
@@ -23,13 +25,24 @@ function Settings() {
       const cus_id = await getStripeCusId(String(user?.email));
       // has subscription
       const hasSub = await hasSubscription(String(cus_id));
+
+      if(hasSub === "no"){
+        setIsPremium(false);
+        setPremiumPlanName("basic")
+      }else if(hasSub === "yearly"){
+        setIsPremium(true);
+        setPremiumPlanName("premium-plus")
+      }else if(hasSub === "monthly"){
+        setIsPremium(true);
+        setPremiumPlanName("premium")
+      }
+      
     } catch (error) {
       console.log(error);
     } finally {
       setLoading(false);
     }
   }
-
   useEffect(() => {
     fetchSubscription();
   }, []);
@@ -42,7 +55,8 @@ function Settings() {
         {loading ? (
           <SettingsSkel/>
         ) : (
-          <SettingsComponent />
+          // <SettingsComponent />
+          <SettingsComponent {...{ IsPremium, PremiumPlanName }} />
         )}
       </div>
   );

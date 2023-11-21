@@ -4,39 +4,59 @@ import SettingsLogin from "./SettingsLogin";
 import { useEffect, useState } from "react";
 import { getStripeCusId, hasSubscription } from "@/stripe/libstripe";
 
-function SettingsComponent() {
+// <SelectedBooks {...{ selectedBook, recommendedBooks, suggestedBooks }} />
+// function SummaryBook({
+//   bookSummary,
+//   formatMinutes,
+//   formatSeconds,
+//   audioRef,
+//   onLoadedMetadata,
+// }: Props) {
+
+// // <SettingsComponent {...{ IsPremium, PremiumPlanName }} />
+
+interface Props {
+  IsPremium: boolean;
+  PremiumPlanName: string;
+}
+
+function SettingsComponent({
+  IsPremium,
+  PremiumPlanName
+}: Props) {
+
   const { user } = useAuth();
 
-  const [IsPremium, setIsPremium] = useState(false);
-  const [PremiumPlanName, setPremiumPlanName] = useState("");
+  //const [IsPremium, setIsPremium] = useState(false);
+  //const [PremiumPlanName, setPremiumPlanName] = useState("");
 
-  async function fetchSubscription() {
-   // setLoading(true);
-    try {
-      const cus_id = await getStripeCusId(String(user?.email));
-      // has subscription
-      const hasSub = await hasSubscription(String(cus_id));
+  // async function fetchSubscription() {
+  //  // setLoading(true);
+  //   try {
+  //     const cus_id = await getStripeCusId(String(user?.email));
+  //     // has subscription
+  //     const hasSub = await hasSubscription(String(cus_id));
 
-      if(hasSub === "no"){
-        setIsPremium(false);
-        setPremiumPlanName("basic")
-      }else if(hasSub === "yearly"){
-        setIsPremium(true);
-        setPremiumPlanName("premium-plus")
-      }else if(hasSub === "monthly"){
-        setIsPremium(true);
-        setPremiumPlanName("premium")
-      }
+  //     if(hasSub === "no"){
+  //       setIsPremium(false);
+  //       setPremiumPlanName("basic")
+  //     }else if(hasSub === "yearly"){
+  //       setIsPremium(true);
+  //       setPremiumPlanName("premium-plus")
+  //     }else if(hasSub === "monthly"){
+  //       setIsPremium(true);
+  //       setPremiumPlanName("premium")
+  //     }
 
-    } catch (error) {
-      console.log(error);
-    } finally {
-      //setLoading(false);
-    }
-  }
-  useEffect(() => {
-    fetchSubscription();
-  }, []);
+  //   } catch (error) {
+  //     console.log(error);
+  //   } finally {
+  //     //setLoading(false);
+  //   }
+  // }
+  // useEffect(() => {
+  //   fetchSubscription();
+  // }, []);
 
   return (
     <div className="container">
